@@ -1,0 +1,54 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin:0px;
+    background-image: url("topography.png");
+}
+h1 { font-family: "Times New Roman", Times, serif;
+    font-size: 70;
+    font-weight: bold;
+    padding: 8% 0 0 0;
+}
+p,
+a { font-family: consolas, courier;
+    font-size: 20;
+}
+a { padding: 0 4% 0 0;
+}
+h2{
+    color:#ff0099;
+    font-size:35;
+}
+h3,
+h4 {
+    font-family: consolas, courier;
+}
+h3 { font-size: 50;
+}
+h4{ font-size: 35;
+}
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    padding: 0 10%;
+    margin:0px;
+    text-transform: uppercase;
+    
+}
+.topnav a {
+    float: right;
+    color: #ff0099;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: underline;
+    font-size: 17px;
+}
+.topnav img {
+    padding: 7 0 0 0;
+}
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  .container {
+    padding: 0 10%;
+  }
