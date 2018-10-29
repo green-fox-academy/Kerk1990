@@ -20,8 +20,8 @@ let space: string = " ";
 let columns: number = 6;
 
 
-for ( let i: number = 0; i <= lineCount; i ++){
-    if (i == 0 || i == lineCount) {
+for ( let j: number = 0; j <= lineCount; j ++){
+    if (j == 0 || j == lineCount) {
         console.log(object.repeat(columns));
     } else {
         console.log(object + space.repeat(columns - 2) + object);
