@@ -14,5 +14,6 @@ let myheight: number = 1.83;
 console.log(myheight);
 
 // Whether you are married or not as a boolean
-let maritalStatus: boolean = false;
+let amImarried: boolean = false;
 console.log(maritalStatus);
+
