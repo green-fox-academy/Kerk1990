@@ -7,10 +7,10 @@
 // Volume: 1000
 
 let a: number = 10;
-let b: number = 60;
-let c: number = 1000 / 600;
+let b: number = 6;
+let c: number = 1000 / 60;
 
-let surface: number = a * b;
+let surface: number = a * a * b;
 
 let volume: number = a * b * c;
 
