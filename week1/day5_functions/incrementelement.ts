@@ -9,4 +9,5 @@ numList = numList.map(function(value)
 });
 
 console.log(numList[2]);
+// numList[2]++
 
