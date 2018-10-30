@@ -8,3 +8,4 @@ let firstList=[1 ,2 ,3];
 let secondList=[4, 5];
 
 console.log(firstList.length < secondList.length);
+// - "if" writes out the content into the log
