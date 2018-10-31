@@ -4,12 +4,12 @@
 //     -  Prepare for the special case when no parameters are given
 // -  Greet `name
 
-let name1:string = "Greenfox";
-    function greet(Hello:string="Gabor"){
+let name1: string = "Greenfox";
+function greet(Hello: string = "Gabor") {
 
-        console.log(greet + Hello);
+    console.log(greet + Hello);
 
-        
-    }
 
-    greet(name1);
+}
+
+greet(name1);

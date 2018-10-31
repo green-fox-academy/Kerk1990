@@ -4,7 +4,7 @@
 
 let animals = ["koal", "pand", "zebr"];
 
-animals.forEach(function(element, index, array) {
+animals.forEach(function (element, index, array) {
 
     array[index] += "a";
 });

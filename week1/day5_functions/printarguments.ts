@@ -3,6 +3,6 @@
 //    (can have multiple number of arguments
 
 function printParams(a: any, ...b: any[]) {
-    console.log(a + "," + b.join(","));
-  }
-  printParams(1, "idk", true, "anything");
+  console.log(a + "," + b.join(","));
+}
+printParams(1, "idk", true, "anything");

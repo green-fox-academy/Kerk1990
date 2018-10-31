@@ -4,9 +4,9 @@
 
 let drinks = ["Gin", "Whiskey", "Wine", "Beer"];
 
-drinks.forEach(function(element, index, array) {
+drinks.forEach(function (element, index, array) {
 
-array[index] += array[index];
+    array[index] += array[index];
 });
 
 console.log(drinks);

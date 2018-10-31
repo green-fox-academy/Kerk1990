@@ -4,8 +4,8 @@
 
 let numList = [1, 2, 3, 4, 5];
 
-numList = numList.map(function(value)
-{return ++value;
+numList = numList.map(function (value) {
+    return ++value;
 });
 
 console.log(numList[2]);

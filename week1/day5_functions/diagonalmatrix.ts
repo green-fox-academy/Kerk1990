@@ -10,3 +10,25 @@
 //
 // * size should depend on a variable
 // ** Relax, a matrix is just like an array
+
+let size: number = 4;
+
+
+let matrix = [];
+
+for (let i: any = 0; i < size; i++) {
+
+    matrix.push([]);
+
+    matrix[i].push([]);
+
+    for (let j: any = 0; j < size; j++) {
+        if (i + j == (size - 1)) {
+            matrix[i][j] = 0;
+        } else {
+            matrix[i][j] = 1;
+        }
+    }
+}
+
+console.log(matrix);
