@@ -5,7 +5,7 @@
 let numList = [1, 2 ,3 , 8, 5, 6];
 
 let change: number[] = numList.map(function (e) {
-    if (e == 8) {
+    if (e === 8) {
         return 4;
     } else return e;
 });
