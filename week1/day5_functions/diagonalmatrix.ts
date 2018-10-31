@@ -1,3 +1,6 @@
+"use strict"
+export { }
+
 // -  Create (dynamically*) a two dimensional list
 //    with the following matrix**. Use a loop!
 //
@@ -11,7 +14,7 @@
 // * size should depend on a variable
 // ** Relax, a matrix is just like an array
 
-let size: number = 5;
+let size: number = 3;
 
 
 let matrix = [];
