@@ -6,7 +6,11 @@
 
 let planetList: string[] = ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Uranus', 'Neptune'];
 // Expected output: "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn",  "Uranus", "Neptune"
+let missingPlanet: string = ", Saturn, ";
+let position = 6;
+let output = [planetList.slice(0, position), missingPlanet, planetList.slice(position)].join('');
+console.log(output);
 
-console.log(putSaturn(planetList));
+export = missingPlanet;
 
-export = putSaturn;
+
