@@ -16,11 +16,11 @@ function squareCentered(size: number): void {
     let x: number = (canvas.width - size) / 2;
     let y: number = (canvas.height - size) / 2;
     ctx.fillRect(x, y, size, size);
-  }
-  
-  let color: string[] = ['#0101DF', '#2E9AFE', '#58D3F7'];
-  
-  for (let i: number = 0; i <3; i++) {
+}
+
+let color: string[] = ['#0101DF', '#2E9AFE', '#58D3F7'];
+
+for (let i: number = 0; i < 3; i++) {
     ctx.fillStyle = color[i];
     squareCentered(300 - i * 100);
-  }
+}
