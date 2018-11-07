@@ -11,6 +11,11 @@ const ctx = canvas.getContext('2d');
 //  - The stars should have random positions on the canvas
 //  - The stars should have random color (some shade of grey)
 
+let skyGradient = ctx.createLinearGradient(0, 0, 0, 400);
+skyGradient.addColorStop(0, "#000033");
+skyGradient.addColorStop(1, "#000099");
+
+ctx.fillStyle = skyGradient;
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 for (let i = 0; i < 200; i++) {
@@ -20,3 +25,4 @@ for (let i = 0; i < 200; i++) {
     ctx.fillRect(xPos, yPos, 3, 3);
     ctx.fillStyle = `rgb(${105 + i},${105 + i},${105 + i}`;
 }
+
