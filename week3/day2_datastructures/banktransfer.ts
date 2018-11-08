@@ -40,7 +40,25 @@ getNameAndBalance(11234543);
 //	{ clientName: 'Sergei', accountNumber: 23456311, balance: 1354100.0 }
 //]
 
+function transferAmount(accountsList: any[], fromAccountNumber: number, toAccountNumber: number, amount: number): void {
+
+  let fromAccountIndex = accountsList.map(function (e) { return e.accountNumber; }).indexOf(fromAccountNumber);
+
+  let toAccountIndex = accountsList.map(function (e) { return e.accountNumber; }).indexOf(toAccountNumber);
+
+  if (fromAccountIndex === -1 || toAccountIndex === -1) {
+    console.log('404 - account not found');
+  } else {
+    accountsList[fromAccountIndex].balance = accountsList[fromAccountIndex].balance - amount;
+
+    accountsList[toAccountIndex].balance = accountsList[toAccountIndex].balance + amount;
+  }
+}
+transferAmount(accounts, 43546731, 23456311, 500.0);
+
+console.log(accounts);
 export = {
   getNameAndBalance,
+  transferAmount,
   accounts
 };
