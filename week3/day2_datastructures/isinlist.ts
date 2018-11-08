@@ -7,8 +7,13 @@ let listOfNumbers: number[] = [2, 4, 6, 8, 10, 12, 14, 16];
 
 function checkNums(listOfNumbers) {
 
-    for (let i=0 ; i<listOfNumbers; i++);
-    if  
+    for (let i = 0; i < listOfNumbers.length; i++) {
+        if (listOfNumbers.includes(4 || 8 || 12 || 16)) {
+            return true;
+        }
+        else
+            return false;
+    }
 }
 console.log(checkNums(listOfNumbers));
 
