@@ -43,11 +43,11 @@ function tablePrinter(list: any[]): void {
 			longestNameLength = list[i].name.length;
 		}
 	}
-	let columnFirstWidth = longestNameLength;
-	let columnSecondWidth = 15;
-	let columnThirdWidth = 10;
-	let wordOneLength = number;
-	let wordTwoLength = number;
-	let wordThreeLength = number;
-	
+	let colAWidth = longestNameLength;
+	let colBWidth = 15;
+	let colCWidth = 10;
+	let wordOneLength : number;
+	let wordTwoLength : number;
+	let wordThreeLength : number;
+	let tableDividerLines :string = "+" + multiplyCharacter("-", colAWidth ) + "+" +multiplyCharacter("-", colBWidth) + "+" + multiplyCharacter("-",colCWidth) + "+";
 }
