@@ -46,8 +46,15 @@ function tablePrinter(list: any[]): void {
 	let colAWidth = longestNameLength;
 	let colBWidth = 15;
 	let colCWidth = 10;
-	let wordOneLength : number;
-	let wordTwoLength : number;
-	let wordThreeLength : number;
-	let tableDividerLines :string = "+" + multiplyCharacter("-", colAWidth ) + "+" +multiplyCharacter("-", colBWidth) + "+" + multiplyCharacter("-",colCWidth) + "+";
+	
+	let tableDividerLines: string = "+" + multiplyCharacter("-", colAWidth) + "+" + multiplyCharacter("-", colBWidth) + "+" + multiplyCharacter("-", colCWidth) + "+";
+
+	console.log(tableDividerLines);
+	console.log("| Ingredient" + "| Needs cooling |" + "| In stock |");
+	console.log(tableDividerLines);
+
+	let wordOneLength: number;
+	let wordTwoLength: number;
+	let wordThreeLength: number;
+	
 }
