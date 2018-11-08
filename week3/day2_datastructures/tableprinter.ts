@@ -40,8 +40,14 @@ function tablePrinter(list: any[]): void {
 
 		if (list[i].name.length > longestNameLength) {
 
-longestNameLength = list[i].name.length;
+			longestNameLength = list[i].name.length;
 		}
 	}
+	let columnFirstWidth = longestNameLength;
+	let columnSecondWidth = 15;
+	let columnThirdWidth = 10;
+	let wordOneLength = number;
+	let wordTwoLength = number;
+	let wordThreeLength = number;
 	
 }
