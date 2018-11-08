@@ -36,7 +36,7 @@ function calculator(args: any[]): any {
 
         return operand1 * operand2;
 
-    } else if (operation === 'divide' && typeof (operand1) === 'number' && typeof (operand2) === 'number') {
+    } else if (operation === 'div' && typeof (operand1) === 'number' && typeof (operand2) === 'number') {
 
         return operand1 / operand2;
 
