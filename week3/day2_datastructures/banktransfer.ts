@@ -13,10 +13,10 @@ const accounts: any[] = [
 function getNameAndBalance(account: number): void {
 
   for (let i: number = 0; i < accounts.length; i++) {
-    
+
     if (accounts[i].accountNumber === account) {
 
-      console.log(accounts[i].accountName, accounts[i].balance);
+      console.log(accounts[i].clientName, accounts[i].balance);
     }
   }
 }
