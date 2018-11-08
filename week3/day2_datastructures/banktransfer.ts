@@ -10,8 +10,16 @@ const accounts: any[] = [
 // getNameAndBalance(11234543);
 // should return: ['Igor', 203004099.2]
 
-function getNameAndBalance(list:any[]): void;
-let account:number =  
+function getNameAndBalance(account: number): void {
+  for (let i: number = 0; i < accounts.length; i++) {
+    if (accounts[i].accountNumber === account) {
+
+      console.log(accounts[i].accountName, accounts[i].balance);
+    }
+  }
+}
+getNameAndBalance(11234543);
+
 
 // Create function that transfers an amount of cash from one account to another
 // it should have four parameters:
@@ -32,6 +40,5 @@ let account:number =
 
 export = {
   getNameAndBalance,
-  transferAmount,
   accounts
 };
