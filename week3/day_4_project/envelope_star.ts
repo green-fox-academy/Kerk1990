@@ -13,8 +13,8 @@ for (let i: number = 1; i < 10; i++) {
     ctx.stroke();
 
     ctx.beginPath();
-    ctx.moveTo(0, i * 30);
-    ctx.lineTo(i * 30, canvas.height / 2);
+    ctx.moveTo(300, i * 30);
+    ctx.lineTo(300 + i * 30, canvas.height / 2);
     ctx.strokeStyle = '#53D836';
     ctx.stroke();
 }
