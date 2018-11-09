@@ -46,7 +46,7 @@ function tablePrinter(list: any[]): void {
 	let colAWidth = longestNameLength;
 	let colBWidth = 15;
 	let colCWidth = 10;
-	
+
 	let tableDividerLines: string = "+" + multiplyCharacter("-", colAWidth) + "+" + multiplyCharacter("-", colBWidth) + "+" + multiplyCharacter("-", colCWidth) + "+";
 
 	console.log(tableDividerLines);
@@ -56,5 +56,5 @@ function tablePrinter(list: any[]): void {
 	let wordOneLength: number;
 	let wordTwoLength: number;
 	let wordThreeLength: number;
-	
+
 }
