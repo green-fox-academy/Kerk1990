@@ -12,5 +12,9 @@ for (let i: number = 0; i < 20; i++) {
     ctx.strokeStyle = '#D73EF2';
     ctx.stroke();
 
-    
+    ctx.beginPath();
+    ctx.moveTo(0, i * 30);
+    ctx.lineTo(i * 30, canvas.height);
+    ctx.strokeStyle = '#53D836';
+    ctx.stroke();
 }
