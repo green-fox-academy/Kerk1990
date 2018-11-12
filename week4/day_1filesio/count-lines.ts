@@ -8,7 +8,7 @@ const fs = require('fs');
 
 function readFromFile(fileName: string): string {
     try {
-      return fs.readFileSync('my-file.txt', 'utf-8');
+      return fs.readFileSync('my-files.txt', 'utf-8');
 
     } catch(e) {
 
@@ -28,10 +28,10 @@ function readFromFile(fileName: string): string {
       lineCount = 0;
 
     } else {
-        
+
       lineCount = fileContent.split('\n').length;
     }
     return lineCount;
   }
   
-console.log(countLines('my-file.txt'));
+console.log(countLines('my-files.txt'));
