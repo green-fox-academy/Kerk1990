@@ -1,3 +1,5 @@
+import { isIP } from "net";
+
 // Read all data from 'log.txt'.
 // Each line represents a log message from a web server
 // Write a function that returns an array with the unique IP adresses.
@@ -8,14 +10,21 @@ const fs = require('fs');
 
 function readFromFile(fileName: string): string {
     try {
-      return fs.readFileSync('logs.txt', 'utf-8');
-    } catch(e) {
-      console.log(e.message);
-      return 'Unable to read file: logs.txt';
+        return fs.readFileSync('logs.txt', 'utf-8');
+    } catch (e) {
+        console.log(e.message);
+        return 'Unable to read file: logs.txt';
     }
-  }
-console.log(readFromFile('logs.txt'));
+}
 
+
+function uniqueIPs(fileName: string) {
+    let fileContent = readFromFile(fileName);
+    let newArray = fileContent.split('\r\n');
+    let uniqueArr = [...new Set(newArray)];
+    return uniqueArr
+}
+console.log(uniqueIPs('logs.txt'));
 
 
 
@@ -24,14 +33,14 @@ function ratio(fileName: string): number {
     let posts: number = 0;
     let fileContent = readFromFile(fileName).split('\r\n');
     if (fileContent !== null) {
-      fileContent.forEach(e => {
-        if (e.includes('GET')) {
-          gets++;
-        } else if (e.includes('POST')) {
-          posts++;
-        }
-      });
+        fileContent.forEach(e => {
+            if (e.includes('GET')) {
+                gets++;
+            } else if (e.includes('POST')) {
+                posts++;
+            }
+        });
     }
     return gets / posts;
-  }
-  console.log(ratio('log.txt'));
+}
+console.log(ratio('logs.txt'));
