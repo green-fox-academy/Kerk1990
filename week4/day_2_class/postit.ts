@@ -12,7 +12,7 @@ export class PostIt {
     text: string;
     textColor: string;
 
-    constructor(backgroundColor: string , text: string, textColor: string) {
+    constructor(backgroundColor: string, text: string, textColor: string) {
         this.backgroundColor = backgroundColor;
         this.text = text;
         this.textColor = textColor;
@@ -21,7 +21,7 @@ export class PostIt {
 
 }
 let PostIt1 = new PostIt('orange', 'Idea 1', 'blue');
-let PostIt2 = new PostIt('pink','Awesome','black');
-let PostIt3 = new PostIt('yellow','Superb!','green');
+let PostIt2 = new PostIt('pink', 'Awesome', 'black');
+let PostIt3 = new PostIt('yellow', 'Superb!', 'green');
 
-console.log(PostIt1,PostIt2,PostIt3);
+console.log(PostIt1, PostIt2, PostIt3);
