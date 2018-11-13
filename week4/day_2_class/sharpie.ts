@@ -16,11 +16,11 @@ export class Sharpie {
 
     }
     use() {
-        this.inkAmount--;
+        this.inkAmount=this.inkAmount - this.width;
 
     }
 }
-let SharpieGreen = new Sharpie('green', 84);
+let SharpieGreen = new Sharpie('green', 8);
 console.log(SharpieGreen);
 SharpieGreen.use();
 console.log(SharpieGreen);
