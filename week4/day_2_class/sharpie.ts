@@ -16,7 +16,7 @@ export class Sharpie {
 
     }
     use() {
-        this.inkAmount=this.inkAmount - this.width;
+        this.inkAmount = this.inkAmount - this.width;
 
     }
 }
