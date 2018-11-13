@@ -11,9 +11,9 @@ class Thing {
     }
     public print() {
         if (this.completed === true) {
-            return ('[x]' + this.name);
+            return ('[x] ' + this.name);
         } else {
-            return ('[ ]' + this.name);
+            return ('[ ] ' + this.name);
         }
 
     }
