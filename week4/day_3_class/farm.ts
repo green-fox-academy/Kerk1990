@@ -18,8 +18,15 @@ export class Farm {
             return false;
         }
     }
-    slaughter(animal:Animal) {
+    slaughter(animal: Animal) {
+        let leastHunger = this.listOfAnimals[0].hunger;
+        let index: number;
+        for (let i: number = 0; i < this.listOfAnimals.length; i++) {
+            if (this.listOfAnimals[i].hunger < leastHunger) {
+                leastHunger = this.listOfAnimals[i].hunger;
+                index = i;
+            }
+        }
 
-        
     }
 }
