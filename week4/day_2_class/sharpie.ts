@@ -10,17 +10,17 @@ export class Sharpie {
     color: string;
     width: number;
     inkAmount: number = 100;
-    constructor(color: string, width: number) {
+    constructor(color: string, width: number, inkAmount: number) {
         this.color = color;
         this.width = width;
-
+        this.inkAmount = inkAmount;
     }
     use() {
         this.inkAmount = this.inkAmount - this.width;
 
     }
 }
-let SharpieGreen = new Sharpie('green', 8);
+let SharpieGreen = new Sharpie('green', 8, 100);
 console.log(SharpieGreen);
 SharpieGreen.use();
 console.log(SharpieGreen);
