@@ -24,21 +24,21 @@ function securityCheck(list: any[]): any[] {
     let allowedEnter: string[] = [];
 
     for (let i: number = 0; i < list.length; i++) {
+        const partyGoer = list[i];
+        if (partyGoer.guns > 0) {
 
-        if (list[i].guns > 0) {
+            watchlist.push(partyGoer.name);
 
-            watchlist.push(list[i].name);
+        } else if (partyGoer.alcohol !== 0) {
 
-        } else if (list[i].alcohol !== 0) {
+            securityAlcoholLoot += partyGoer.alcohol;
 
-            securityAlcoholLoot = securityAlcoholLoot + list[i].alcohol;
+            partyGoer.alcohol = 0;
 
-            list[i].alcohol = 0;
-
-            allowedEnter.push(list[i].name);
+            allowedEnter.push(partyGoer.name);
 
         } else {
-            allowedEnter.push(list[i].name);
+            allowedEnter.push(partyGoer.name);
         }
     }
     return allowedEnter;
