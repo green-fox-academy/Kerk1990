@@ -15,7 +15,7 @@ class Fleet {
     }
     print() {
         for (let j: number = 0; j < this.things.length; j++) {
-            console.log(j + 1 + '' + this.things[j].print());
+            console.log(j + 1 + this.things[j].print());
         }
     }
 }
