@@ -1,7 +1,7 @@
-import {Student} from "./student"
+import { Student } from "./student"
 export class Teacher {
-    teach(student:Student) {
+    teach(student: Student) {
         student.learn();
     }
-    answer(): void {}
+    answer(): void { }
 }

@@ -1,9 +1,9 @@
-import {Teacher} from "./teacher"
+import { Teacher } from "./teacher"
 export class Student {
 
 
 
-learn():void {}
+    learn(): void { }
 
     askTeacher(teacher: Teacher): void {
         teacher.answer();
