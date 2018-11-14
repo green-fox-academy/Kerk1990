@@ -28,4 +28,3 @@ function copyFile(fileNameFrom: string, fileNameTo: string): boolean {
 }
 
 copyFile('mytext1.txt', 'mytext2.txt');
-console.log(copyFile);
