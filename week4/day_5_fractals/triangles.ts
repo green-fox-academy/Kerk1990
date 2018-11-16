@@ -7,8 +7,8 @@ const ctx = canvas.getContext('2d');
 
 let size = 500;
 
-function trianglePoints(Ax, Ay, Bx, By, Cx, Cy, d, ctx) {
-  if (d > 0) {
+function trianglePoints(Ax, Ay, Bx, By, Cx, Cy, depth, ctx) {
+  if (depth > 0) {
     let pointAx = (Bx + Cx) / 2;
     let pointAy = (By + Cy) / 2;
 
@@ -18,10 +18,10 @@ function trianglePoints(Ax, Ay, Bx, By, Cx, Cy, d, ctx) {
     let pointCx = (Ax + Bx) / 2;
     let pointCy = (Ay + By) / 2;
 
-    let d2 = d - 1;
-    trianglePoints(Ax, Ay, pointBx, pointBy, pointCx, pointCy, d2, ctx);
-    trianglePoints(pointCx, pointCy, pointAx, pointAy, Bx, By, d2, ctx);
-    trianglePoints(pointBx, pointBy, pointAx, pointAy, Cx, Cy, d2, ctx);
+    let depth2 = depth - 1;
+    trianglePoints(Ax, Ay, pointBx, pointBy, pointCx, pointCy, depth2, ctx);
+    trianglePoints(pointCx, pointCy, pointAx, pointAy, Bx, By, depth2, ctx);
+    trianglePoints(pointBx, pointBy, pointAx, pointAy, Cx, Cy, depth2, ctx);
   }
   else {
     ctx.save();
@@ -33,8 +33,8 @@ function trianglePoints(Ax, Ay, Bx, By, Cx, Cy, d, ctx) {
     ctx.lineTo(Ax, Ay);
     ctx.restore();
   }
-}
 
+}
 
 function drawTriangles(ctx) {
   let midPointX = canvas.width / 2;
@@ -79,7 +79,3 @@ gradient.addColorStop(5 / 6, 'indigo');
 gradient.addColorStop(1, 'violet');
 ctx.strokeStyle = gradient;
 ctx.stroke();
-
-
-
-
