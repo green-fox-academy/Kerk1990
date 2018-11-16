@@ -25,8 +25,8 @@ function trianglePoints(Ax, Ay, Bx, By, Cx, Cy, d, ctx) {
   }
   else {
     ctx.save();
-    ctx.translate(canvas.width , canvas.height );
-    ctx.rotate(Math.PI );
+    ctx.translate(canvas.width, canvas.height);
+    ctx.rotate(Math.PI);
     ctx.moveTo(Ax, Ay);
     ctx.lineTo(Bx, By);
     ctx.lineTo(Cx, Cy);
