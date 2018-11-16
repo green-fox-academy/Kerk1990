@@ -58,9 +58,26 @@ function drawTriangles(ctx) {
 }
 
 drawTriangles(ctx);
-ctx.fillStyle = 'white';
+
+let gradient = ctx.createLinearGradient(10, 0, 500, 0);
+gradient.addColorStop(0, 'red');
+gradient.addColorStop(1 / 6, 'orange');
+gradient.addColorStop(2 / 6, 'yellow');
+gradient.addColorStop(3 / 6, 'green');
+gradient.addColorStop(4 / 6, 'blue');
+gradient.addColorStop(5 / 6, 'indigo');
+gradient.addColorStop(1, 'violet');
+ctx.fillStyle = gradient
 ctx.fill();
-ctx.strokeStyle = 'black';
+
+gradient.addColorStop(0, 'red');
+gradient.addColorStop(1 / 6, 'orange');
+gradient.addColorStop(2 / 6, 'yellow');
+gradient.addColorStop(3 / 6, 'green');
+gradient.addColorStop(4 / 6, 'blue');
+gradient.addColorStop(5 / 6, 'indigo');
+gradient.addColorStop(1, 'violet');
+ctx.strokeStyle = gradient;
 ctx.stroke();
 
 
