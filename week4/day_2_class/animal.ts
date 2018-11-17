@@ -7,10 +7,13 @@
 //Every animal can play() which increases both by one
 
 export class Animal {
-
+name:string;
     hunger: number = 50;
     thirst: number = 50;
 
+    onstructor(name: string) {
+        this.name = name;
+    }
     eat(): void {
         this.hunger--;
     }
