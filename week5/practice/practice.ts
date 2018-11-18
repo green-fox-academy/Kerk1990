@@ -12,7 +12,7 @@ export class Person {
   Person
 
   introduce() {
-    console.log(`Hi, I'm ${this.name} a ${this.age} old ${this.gender}.`)
+    console.log(`Hi, I'm ${this.name} a ${this.age} years old ${this.gender}.`)
 
   }
   getGoal() {
@@ -21,7 +21,7 @@ export class Person {
 }
 
 
-class Student {
+export class Student {
   name: string;
   age: number;
   gender: string;
@@ -37,7 +37,7 @@ class Student {
   }
 
   introduce() {
-    console.log(`Hi, I'm ${this.name} a ${this.age} old ${this.gender} from ${this.prevOrg} who skipped ${this.skippedDays}`);
+    console.log(`Hi, I'm ${this.name} a ${this.age} years old ${this.gender} from ${this.prevOrg} who skipped ${this.skippedDays}`);
 
   }
   getGoal() {
@@ -49,7 +49,7 @@ class Student {
   }
 }
 
-class Mentor {
+export class Mentor {
 
   name: string;
   age: number;
@@ -64,7 +64,7 @@ class Mentor {
   }
 
   introduce() {
-    console.log(`Hi I'm ${this.name} a ${this.age} old ${this.gender} ${this.level} mentor.`);
+    console.log(`Hi I'm ${this.name} a ${this.age} years old ${this.gender} ${this.level} mentor.`);
 
   }
   getGoal() {
@@ -72,7 +72,7 @@ class Mentor {
   }
 }
 
-class Sponsor {
+export class Sponsor {
 
   name: string;
   age: number;
@@ -89,7 +89,7 @@ class Sponsor {
     this.hiredStuds = 0;
   }
   introduce() {
-    console.log(`Hi I'm ${this.name} a ${this.age} old ${this.gender} who represents ${this.company} and hired ${this.hiredStuds} students so far.`);
+    console.log(`Hi I'm ${this.name} a ${this.age} years old ${this.gender} who represents ${this.company} and hired ${this.hiredStuds} students so far.`);
 
   }
   getGoal() {

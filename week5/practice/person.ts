@@ -12,7 +12,7 @@ export class Person {
   Person
 
   introduce() {
-    console.log(`Hi, I'm ${this.name} a ${this.age} old ${this.gender}.`)
+    console.log(`Hi, I'm ${this.name} a ${this.age} years old ${this.gender}.`)
 
   }
   getGoal() {

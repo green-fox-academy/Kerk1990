@@ -13,7 +13,7 @@ export class Mentor {
   }
 
   introduce() {
-    console.log(`Hi I'm ${this.name} a ${this.age} old ${this.gender} ${this.level} mentor.`)
+    console.log(`Hi I'm ${this.name} a ${this.age} years old ${this.gender} ${this.level} mentor.`)
 
   }
   getGoal() {

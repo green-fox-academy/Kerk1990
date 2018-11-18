@@ -15,7 +15,7 @@ export class Sponsor {
     this.hiredStuds = 0;
   }
   introduce() {
-    console.log(`Hi I'm ${this.name} a ${this.age} old ${this.gender} who represents ${this.company} and hired ${this.hiredStuds} students so far.`);
+    console.log(`Hi I'm ${this.name} a ${this.age} years old ${this.gender} who represents ${this.company} and hired ${this.hiredStuds} students so far.`);
 
   }
   getGoal() {
