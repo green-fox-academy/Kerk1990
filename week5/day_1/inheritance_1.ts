@@ -80,3 +80,24 @@ export class Sponsor extends Person {
     this.hiredStuds++;
   }
 }
+export class Cohort extends Person {
+
+  name: string;
+  students: Student[] = [];
+  mentors: Mentor[] = [];
+
+  constructor(name: string) {
+    super(name);
+  }
+  addStudent(student:Student): void {
+    this.students.push(student);
+
+  }
+  addMentor(mentor:Mentor): void {
+    this.mentors.push(mentor);
+  }
+  info(): void {
+    console.log(`The ${this.name} cohort has ${this.students.length} students and ${this.mentors.length} mentors.`)
+
+  }
+}
