@@ -2,7 +2,7 @@
 
 export function fibonacci(inputNumber: any): number {
   try {
-    if (typeof (inputNumber) !== 'number') {
+    if (typeof (inputNumber) === 'number') {
       throw new Error('Please provide a number type of variable')
     }
   } catch (error) {
