@@ -14,14 +14,14 @@ export function maxOfThree(a: number, b: number, c: number): number {
   }
 };
 
-export function median(pool){
-  pool = pool.sort(function(a, b){ return a - b; });
+export function median(pool) {
+  pool = pool.sort(function (a, b) { return a - b; });
   let i = pool.length / 2;
   return i % 1 == 1 ? (pool[i - 1] + pool[i]) / 2 : pool[Math.floor(i)];
 }
 
 export function isVowel(character: string): boolean {
-  return ['a', 'u', 'o', 'e', 'i'].some(vowel => vowel === character);
+  return ['a', 'u', 'o', 'e', 'i', 'A', 'U', 'O', 'E', 'I'].some(vowel => vowel === character);
 }
 
 export function translate(hungarian: string): string {

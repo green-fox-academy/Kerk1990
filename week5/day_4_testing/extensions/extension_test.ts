@@ -43,13 +43,13 @@ test('is vowel: u', function (t: any): any {
   t.end();
 });
 
-test("is vowel: k", function(t: any): any {
-  t.notOk(isVowel("k"));
+test('is vowel: k', function(t: any): any {
+  t.notOk(isVowel('k'));
   t.end();
 });
 
 test('translate: bemutatkozik', function (t: any): any {
-  t.equal(translate('bemutatkozik'), 'bevemuvutavatkovozivik');
+  t.equal(translate('kecske'), 'kevecskeve');
   t.end();
 });
 
