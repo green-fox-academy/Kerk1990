@@ -1,7 +1,7 @@
 'use strict';
 
 export function add(a: number, b: number): number {
-  return (a+b);
+  return (a + b);
 }
 
 export function maxOfThree(a: number, b: number, c: number): number {
@@ -14,8 +14,10 @@ export function maxOfThree(a: number, b: number, c: number): number {
   }
 };
 
-export function median(pool: number[]): number {
-  return pool[Math.floor((pool.length - 1) / 2)];
+export function median(pool){
+  pool = pool.sort(function(a, b){ return a - b; });
+  let i = pool.length / 2;
+  return i % 1 == 1 ? (pool[i - 1] + pool[i]) / 2 : pool[Math.floor(i)];
 }
 
 export function isVowel(character: string): boolean {
