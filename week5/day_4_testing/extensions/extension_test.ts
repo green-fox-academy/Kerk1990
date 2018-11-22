@@ -19,17 +19,17 @@ test('max of three: first', function (t: any): any {
 });
 
 test('max of three: third', function (t: any): any {
-  t.equal(maxOfThree(3, 66, 5), 66);
+  t.equal(maxOfThree(3, 6, 66), 66);
   t.end();
 });
 
 test('median: four', function (t: any): any {
-  t.equal(median([7, 5, 3, 5]), 5);
+  t.equal(median([7, 200, 3, 6]), 7);
   t.end();
 });
 
 test('median: five', function (t: any): any {
-  t.equal(median([1, 2, 3, 4, 5]), 3);
+  t.equal(median([1, 12, 3, 4, 34]), 4);
   t.end();
 });
 
