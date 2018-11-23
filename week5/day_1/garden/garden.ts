@@ -5,6 +5,14 @@ class Garden {
   constructor(name: string) {
     this.name = name
   }
+
+  addFlower(flower: Flower) {
+    this.plants.push(flower);
+  }
+  addTree(tree: Tree) {
+    this.plants.push(tree);
+  }
+
 }
 
 class Plant {
@@ -33,7 +41,10 @@ class Flower extends Plant {
     super(color, waterLevel);
   }
   needsWater() {
-
+    return this.waterLevel < 5;
+  }
+  water(water: number) {
+    this.waterLevel += 0.75 * water;
   }
 }
 
@@ -43,6 +54,9 @@ class Tree extends Plant {
     super(color, waterLevel);
   }
   needsWater() {
-
+    return this.waterLevel < 10;
+  }
+  water(water: number) {
+    this.waterLevel += 0.4 * water;
   }
 }
