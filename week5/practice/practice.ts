@@ -1,15 +1,13 @@
 export class Person {
-  name: string;
-  age: number;
-  gender: string;
+  protected name: string;
+  protected age: number;
+  protected gender: string;
 
   constructor(name: string = 'Jane Doe', age: number = 30, gender: string = 'female') {
     this.name = name;
     this.age = age;
     this.gender = gender;
   }
-
-  Person
 
   introduce() {
     console.log(`Hi, I'm ${this.name} a ${this.age} years old ${this.gender}.`)
@@ -21,17 +19,12 @@ export class Person {
 }
 
 
-export class Student {
-  name: string;
-  age: number;
-  gender: string;
+export class Student extends Person {
   prevOrg: string;
   skippedDays: number;
 
   constructor(name: string = 'Jane Doe', age: number = 30, gender: string = 'female', prevOrg: string = 'The school of life') {
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
+    super(name, age, gender);
     this.prevOrg = prevOrg;
     this.skippedDays = 0;
   }
@@ -49,17 +42,11 @@ export class Student {
   }
 }
 
-export class Mentor {
-
-  name: string;
-  age: number;
-  gender: string;
+export class Mentor extends Person {
   level: string;
 
   constructor(name: string = 'Jane Doe', age: number = 30, gender: string = 'female', level: string = 'intermediate') {
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
+    super(name, age, gender);
     this.level = level;
   }
 
@@ -72,19 +59,12 @@ export class Mentor {
   }
 }
 
-export class Sponsor {
-
-  name: string;
-  age: number;
-  gender: string;
+export class Sponsor extends Person {
   company: string;
   hiredStuds: number;
 
   constructor(name: string = 'Jane Doe', age: number = 30, gender: string = 'female', company: string = 'Google') {
-
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
+    super(name, age, gender);
     this.company = company;
     this.hiredStuds = 0;
   }
