@@ -41,14 +41,10 @@ export class Aircraft {
   getStatus() {
     return `Type ${this.type}, Ammo: ${this.currentAmmo}, Base damage: ${this.baseDamage}, All damage: ${this.allDamage}`
   }
-  isPriority() {
-    if (this.type === 'F35') {
-      return true;
-    } else {
-      return false;
+  isPriority():boolean {
+    return (this.type === 'F35')
     }
   }
-}
 
 
 
