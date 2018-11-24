@@ -1,42 +1,54 @@
 export class Aircraft {
-  maxAmmo: number;
-  currentAmmo: number;
-  baseDamage: number;
-  maxDamage: number;
-  constructor(maxAmmo: number, currentAmmo: number, baseDamage: number, maxDamage: number) {
-    this.maxAmmo = maxAmmo;
-    this.currentAmmo = currentAmmo;
-    this.baseDamage = baseDamage;
-    this.maxDamage = maxDamage;
+  protected type: string;
+  protected maxAmmo: number;
+  protected currentAmmo: number;
+  protected baseDamage: number;
+  protected allDamage: number;
+
+  constructor(maxAmmo: number, currentAmmo: number, baseDamage: number, allDamage: number) {
+    this.type = '';
+    this.maxAmmo = 0;
+    this.currentAmmo = 0;
+    this.baseDamage = 0;
+    this.allDamage = 0;
+  }
+  getCurrentAmmo() {
+    return this.currentAmmo;
+  }
+  getAllDamage() {
+    return this.allDamage;
   }
   fight() {
-    let damage = this.baseDamage * this.currentAmmo;
-    return damage;
+    let causedDamage: number = this.baseDamage * this.currentAmmo;
+    this.currentAmmo = 0;
+    return causedDamage;
   }
-  refill(amountOfAmmo: number) {
-    let remainingAmmo = amountOfAmmo - (this.maxAmmo - this.currentAmmo);
-    console.log(remainingAmmo);
+  attacked(damageInput: number) {
+    return this.allDamage += damageInput;
+  }
+  getRefillNeed() {
+    return this.maxAmmo - this.currentAmmo;
+  }
+  refill(fillAmount: number) {
+    let emptySpace: number = this.getRefillNeed();
+    this.currentAmmo += fillAmount;
+    return fillAmount - emptySpace;
   }
 
+  getType() {
+    return this.type;
+  }
+  getStatus() {
+    return `Type ${this.type}, Ammo: ${this.currentAmmo}, Base damage: ${this.baseDamage}, All damage: ${this.allDamage}`
+  }
+  isPriority() {
+    if (this.type === 'F35') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
-class F16 extends Aircraft {
-  constructor(maxAmmo: number, currentAmmo: number, baseDamage: number = 30, maxDamage: number) {
-    super(maxAmmo, currentAmmo, baseDamage, maxDamage);
-  }
-}
 
-class F35 extends Aircraft {
-  constructor(maxAmmo: number, currentAmmo: number, baseDamage: number = 50, maxDamage: number) {
-    super(maxAmmo, currentAmmo, baseDamage, maxDamage);
-
-  }
-
-}
-
-let newF16 = new Aircraft(12, 0, 30, 360);
-let newF35 = new Aircraft(8, 0, 50, 400);
-
-console.log(newF16.refill(300));
-console.log(newF35.refill(300));
 
 
