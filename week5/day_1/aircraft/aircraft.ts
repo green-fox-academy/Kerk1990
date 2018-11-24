@@ -5,7 +5,7 @@ export class Aircraft {
   protected baseDamage: number;
   protected allDamage: number;
 
-  constructor(maxAmmo: number, currentAmmo: number, baseDamage: number, allDamage: number) {
+  constructor() {
     this.type = '';
     this.maxAmmo = 0;
     this.currentAmmo = 0;
