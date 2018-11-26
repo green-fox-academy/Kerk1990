@@ -7,7 +7,5 @@ export class F35 extends Aircraft {
     this.type = 'F35'
     this.maxAmmo = 12;
     this.baseDamage = 50;
-
   }
-
 }
