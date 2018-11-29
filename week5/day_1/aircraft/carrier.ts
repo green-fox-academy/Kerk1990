@@ -53,16 +53,16 @@ Aircrafts: `;
     return damage;
   }
 }
-let ferihegy = new Carrier(300, 1000);
-let ferihegy2 = new Carrier(400, 2500)
+let KGVictory = new Carrier(300, 1000);
+let Titanic = new Carrier(400, 2500)
 
 for (let i = 0; i < 5; i++) {
-  i % 2 === 0 ? ferihegy.add(new F16()) : ferihegy.add(new F35());
+  i % 2 === 0 ? KGVictory.add(new F16()) : KGVictory.add(new F35());
   for (let j = 0; j < 5; j++) {
-    j % 2 === 0 ? ferihegy2.add(new F16()) : ferihegy2.add(new F35());
+    j % 2 === 0 ? Titanic.add(new F16()) : Titanic.add(new F35());
   }
-  ferihegy.fill();
-  ferihegy2.fill();
+  KGVictory.fill();
+  Titanic.fill();
 }
 
-console.log(ferihegy.getStatus());
+console.log(KGVictory.getStatus());
