@@ -1,7 +1,6 @@
 import { Aircraft } from "./aircraft";
 import { F16 } from "./f16";
 import { F35 } from "./f35";
-import { Car } from "../../../week4/day_3_class/station/car";
 
 'use strict';
 
