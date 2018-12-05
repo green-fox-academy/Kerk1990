@@ -1,0 +1,22 @@
+
+.container {
+  width:1000px;
+  height:300px;
+  display: flex;
+  flex-direction: row;
+  background:#FFD62A;
+  align-items: center;
+  justify-content: flex-start;
+}
+.item {
+  height: 200px;
+  width: 200px;
+  background:#B02AFF;
+  list-style-type: none;
+  margin-left: 0px;
+  margin-right: 10px;
+}
+
+ul {
+  padding-inline-start: 0;
+}
