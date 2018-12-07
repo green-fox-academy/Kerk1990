@@ -1,0 +1,42 @@
+
+#container {
+  display:flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+#top {
+  width:1000px;
+  margin:100px;
+}
+
+#middle {
+  display:flex;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+}
+
+#middle img {
+  width:800px;
+  object-fit: cover;
+}
+#textbox {
+  position: absolute;
+  background-color: rgba(50,50,50,0,5);
+  color:white;
+}
+
+#rightbutton img {
+  transform: rotate(180deg);
+}
+#bottom {
+  width: 1000px;
+  display: flex;
+  justify-content: :space-between;
+}
+#bottom img{
+  width:100px;
+  height: 100px;
+  object-fit: cover;
+}
