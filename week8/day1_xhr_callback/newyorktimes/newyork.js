@@ -8,10 +8,33 @@ const sendHTTPRequest = (url, method, callback) => {
   }
   xhr.send();
 }
-const URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=apollo11+moon&landing&api_key=b31681bb57eb4f35903950f1a7fd11f3&limit=15';
+const URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=901dbc4f7cf54542a732d16a5a14aecb&q=moon&landing&by&apollo&11&begin_date=19690616&end_date=19690624';
 sendHTTPRequest(URL, 'GET', (response) => {
   console.log(response);
 });
+for (let i = 0; response.response.docs.length; i++) {
+  let articleHeadline = response.response.docs[i].headline.main;
+  let articlePubDate = response.response.docs[i].pub_date;
+  let articleSnippet = response.response.docs[i].snippet;
+  let articleBody = document.querySelector('body');
+  const article = document.createElement('article');
+  const headLine = document.createElement('headline');
+  headLine.innerText = articleHeadline;
+  const pubDate = document.createElement('div');
+  pubDate.innerText = articlePubDate;
+  const snippet = document.createElement('p');
+  snippet.innerText = articleSnippet;
+  const permaLink = document.createElement('permalink');
+  permaLink.innerText = 'Read articles here';
+
+  article.appendChild(headLine);
+  article.appendChild(pubDate);
+  article.appendChild(snippet);
+  article.appendChild(permaLink);
+  articleBody.appendChild(article);
+
+}
+
 
 
 
