@@ -1,17 +1,22 @@
-const cocktail = '🍸';
-let cocktailCounter = 3;
-let beerCounter = 0;
+let beers = 0;
+let cocktails = '';
+let cocktailCounter = 0;
 let beersPerSec = 0;
-let slotRainSpd = 0;
 
-const beers = document.querySelector('.beers');
-const cocktail = document.querySelector('.cocktail');
+const beersCount = document.querySelector('.beers');
+const cocktails = document.querySelector('.cocktail');
 const beerSpeed = document.querySelector('.speed');
 const createBeer = document.querySelector('.create-beer');
 const buyCocktails = document.querySelector('.buy-cocktails');
 const slotMachine = document.querySelector('.slot-machine');
 
-createBeer.addEventListener('click', () => {
-  beerCounter++;
-  beers.textContent = beerCounter;
-});
+const addBeers = () => {
+  beers++;
+  beerCount.textContent = beers;
+}
+
+const cocktailsPerSec = () => {
+  beers += beersPerSec;
+  beersCount.textContent = beers;
+}
+
