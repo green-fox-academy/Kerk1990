@@ -3,41 +3,40 @@
 
 <head>
   <meta charset='UTF-8'>
-  <title>Account Login</title>
-  <link rel='stylesheet' type='text/css' href='button.css' media='screen' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <link rel='stylesheet' href='button.css'>
+  <title>Button Disable</title>
 </head>
 
 <body>
-  <p1>What is your favourite pet?</p1>
-
-  <div>
-    <input type="radio" id="dog" name="pet" value="dog" >
-    <label for="dog">Dog</label>
-  </div>
-  <div>
-    <input type="radio" id="cat" name="pet" value="cat">
-    <label for="cat">Cat</label>
-  </div>
-  <input type="radio" id="viktor" name="pet" value="viktor">
-  <label for="viktor">Viktor the goldfish</label>
-  </div>
-  <div>
-    <p2>Do you want to sing up for cat facts?</p2>
+  <form action='button.html' name='myform'>
+    <h1>What is your favourite pet?</h1>
     <div>
-      <input type="radio" id="yes" name="facts" value="yes" >
-      <label for="yes">Yes</label>
+      <input type='radio' name='favouritepets' id='dog' value='dog'>
+      <label for='dog'>Dog</label>
     </div>
     <div>
-      <input type="radio" id="no" name="facts" value="no">
-      <label for="no">No</label>
+      <input type='radio' name='favouritepets' id='cat' value='cat'>
+      <label for='cat'>Cat</label>
     </div>
-    <button class="favorite styled" type="button">
-      I love cats
-    </button>
-    <br>
-    <button class="favorite styled" type="button">
-      Sign up
-    </button>
+    <div>
+      <input type='radio' name='favouritepets' id='fish' value='fish'>
+      <label for='fish'>Viktor the goldfish</label>
+    </div>
+    <h1>Do you want to sign up for cat facts?</h1>
+    <div>
+      <input type='radio' name='facts' id='yes' value='yes'>
+      <label for='yes'>Yes</label>
+    </div>
+    <div>
+      <input type='radio' name='facts' id='no' value='no'>
+      <label for='no'>No</label>
+    </div>
+    <button class='lovecats' disabled>I love cats</button>
+    <button class='signup' disabled>Sign up</button>
+  </form>
+  <script src='button.js'></script>
 </body>
 
 </html>
