@@ -32,6 +32,10 @@ input[type=text]:focus {
   outline: none;
   border-color: #D2EDCA;
     }
+    input[type=password]:focus {
+      outline: none;
+      border-color: #D2EDCA;
+    }
 label{
   color: #464646;
   text-shadow: 0 1px 0 #fff;
@@ -67,3 +71,7 @@ input[type=button]:hover{
 h1{
   font-size: 20px;
 }
+/* .password + .glyphicon {
+  cursor: pointer;
+  pointer-events: all;
+} */
