@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+<link rel='stylesheet' type='text/css' href='pub.css' media='screen' />
 
 <head>
   <style>
@@ -12,18 +13,23 @@
 </head>
 
 <body>
-  <h1>🍻  🍺Pub🍺  🍻</h1>
-  <dl class="stats">
-    <dt>Beer</dt>
-    <dd class="beers">0</dd>
-    <dt>Cocktails</dt>
-    <dd class="cocktails">🍸🍸🍸</dd>
-    <dt>Cocktails / Second</dt>
-    <dd class="speed">0</dd>
-  </dl>
-  <button class="create-beer">Create beers</button>
-  <button class="buy-cocktails">Buy cocktails</button>
-  <button class="slot-machine">Make it rain</button>
+  <div class='container'>
+    <h1>🍻 🍺Pub🍺 🍻</h1>
+    <dl class="stats">
+      <dt>Beer</dt>
+      <dd class="beers">0</dd>
+      <dt>Wine</dt>
+      <dd class="wines">0</dd>
+      <dt>Cocktails</dt>
+      <dd class="cocktails">0</dd>
+      <dt>Beer / Second</dt>
+      <dd class="speed">0</dd>
+    </dl>
+    <button class="create-beer"></button>
+    <button class="buy-cocktails"></button>
+    <button class="buy-wines"></button>
+    <button class="get-wasted"></button>
+  </div>
   <script src="game.js"></script>
 </body>
 
