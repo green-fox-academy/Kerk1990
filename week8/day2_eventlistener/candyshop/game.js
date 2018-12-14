@@ -1,58 +1,58 @@
-const createBeers = document.querySelector('.create-beer');
-const numberOfBeers = document.querySelector('.beers');
-const beerCreateSpeed = document.querySelector('.speed');
-const getCocktails = document.querySelector('.buy-cocktails');
+const createMoney = document.querySelector('.create-money');
+const numberOfMoney = document.querySelector('.money');
+const moneyCreateSpeed = document.querySelector('.speed');
+const getBeers = document.querySelector('.buy-beers');
 const getWine = document.querySelector('.buy-wines')
-const cocktailCount = document.querySelector('.cocktails');
+const beerCount = document.querySelector('.beers');
 const wineCount = document.querySelector('.wines')
 const destroyed = document.querySelector('.get-wasted');
 const image = document.getElementById('.image');
 
-let beers = 0;
-let cocktails = '';
+let money = 0;
+let beers = '';
 let wines = '';
-let cocktailCounter = 0;
+let BeerCounter = 0;
 let wineCounter = 0;
-let beerPerSec = 0;
+let moneyPerSec = 0;
 
 
-const addBeers = () => {
-  beers++;
-  numberOfBeers.textContent = beers;
+const addMoney = () => {
+  money++;
+  numberOfMoney.textContent = money;
 }
 
-const beersByTime = () => {
-  beers += beerPerSec;
-  numberOfBeers.textContent = beers;
+const moneyByTime = () => {
+  money += moneyPerSec;
+  numberOfMoney.textContent = money;
 }
 
 const wasted = () => {
-  beerPerSec = beerPerSec + 1;
-  beerCreateSpeed.textContent = beerPerSec;
+  moneyPerSec = moneyPerSec + 1;
+  moneyCreateSpeed.textContent = moneyPerSec;
 }
 
-createBeers.addEventListener('click', addBeers);
+createMoney.addEventListener('click', addMoney);
 
-getCocktails.addEventListener('click', () => {
-  if (beers >= 5) {
-    cocktails += '🍸';
-    cocktailCounter++;
-    cocktailCount.textContent = cocktails;
-    beers -= 5;
-    numberOfBeers.textContent = beers;
+getBeers.addEventListener('click', () => {
+  if (money >= 5) {
+    beers += '🍺';
+    BeerCounter++;
+    beerCount.textContent = beers;
+    money -= 5;
+    numberOfMoney.textContent = money;
   }
 })
 
 getWine.addEventListener('click', () => {
-  if (beers >= 10) {
+  if (money >= 10) {
     wines += '🍷';
     wineCounter++;
     wineCount.textContent = wines;
-    beers -= 10;
-    numberOfBeers.textContent = beers;
+    money -= 10;
+    numberOfMoney.textContent = money;
   }
 })
 
 destroyed.addEventListener('click', wasted);
 
-setInterval(beersByTime, 100);
+setInterval(moneyByTime, 100);
