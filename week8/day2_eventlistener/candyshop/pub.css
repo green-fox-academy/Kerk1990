@@ -1,0 +1,47 @@
+.container {
+  height: 600px;
+  width: 900px;
+  text-align: center;
+  font-size: 30px;
+  border: solid 2px black;
+  border-radius: 20px;
+  margin:35px auto;
+}
+
+.create-beer {
+background:url(beer.jpg);
+background-repeat: no-repeat;
+width:80px;
+height:60px;
+border: solid 2px black;
+margin-left: 50px;
+}
+
+.buy-cocktails {
+  background:url(cocktailmod.png);
+  background-repeat: no-repeat;
+  width:80px;
+  height:60px;
+  border: solid 2px black;
+  margin-left: 50px;
+}
+
+.buy-wines {
+  background:url(red-winemod.png);
+  background-repeat: no-repeat;
+  width:80px;
+  height:60px;
+  border: solid 2px black;
+  margin-left: 50px;
+}
+
+.get-wasted {
+  background:url(wastedmod.jpg);
+  background-repeat: no-repeat;
+  width:85px;
+  height:60px;
+  border: solid 2px black;
+  margin-left: 50px;
+  }
+
+  
