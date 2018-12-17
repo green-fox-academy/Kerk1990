@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" type="text/css" href="/static/style.css">
 
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
   <title>Cocktails</title>
 </head>
 
 <body>
   <h1>Cocktails</h1>
-  <ul>
-    <h2>Name</h2>
-    <% cocktails.forEach(e => { %>
-    <div>
-      <li>
-        <%= e.name %>
-      </li>
+  <div class='container'>
+    <div class='name'>
+      <ul>
+        <h2>Name</h2>
+        <% cocktails.forEach(e => { %>
+        <div>
+          <li>
+            <%= e.name %>
+          </li>
+        </div>
+        <% }); %>
+      </ul>
     </div>
-    <% }); %>
-  </ul>
+    <div class='prices'>
+      <ul>
+        <h2>Price</h2>
+        <% cocktails.forEach(e => { %>
+        <div>
+          <li>
+            <%= e.price %> HUF
+          </li>
+        </div>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
 </body>
 
 </html>
