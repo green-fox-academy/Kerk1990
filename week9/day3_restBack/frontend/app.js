@@ -3,8 +3,9 @@ const app = express();
 const PORT = 8080;
 const path = require('path');
 
-const bodyParser = require('body-parser');
-const jsonParser = bodyParser.json();
+// const bodyParser = require('body-parser');
+// const jsonParser = bodyParser.json();
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
@@ -60,7 +61,7 @@ multiplyUntil = (inputNum) => {
     return 1;
   }
 }
-app.post('/dountil/:action',jsonParser,(req, res) => {
+app.post('/dountil/:action',(req, res) => {
   let sumResult = sumUntil(req.body.until);
   let multiResult = multiplyUntil(req.body.until);
   if (req.params.action === 'sum') {
@@ -82,6 +83,7 @@ app.post('/dountil/:action',jsonParser,(req, res) => {
 
 
 app.use('/assets', express.static('assets'));
+
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
