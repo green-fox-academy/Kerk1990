@@ -33,7 +33,7 @@ const multiply = (array) => {
 }
 
 const double = (array) => {
-  return array.map(a => a* 2);
+  return array.map(a => a * 2);
 }
 
 app.listen(PORT, () => {
