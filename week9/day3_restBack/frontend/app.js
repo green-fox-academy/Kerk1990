@@ -23,7 +23,7 @@ app.get('/doubling', (req, res) => {
 
 app.get('/greeter', (req, res) => {
   const { name, title } = req.query;
-  if (name,title) {
+  if (name, title) {
     res.json({ welcome_message: `Oh, hi there ${name}, my dear ${title}!` });
   } else if (title) {
     res.json({ error: 'Please provide a name!' });
@@ -32,8 +32,16 @@ app.get('/greeter', (req, res) => {
   }
 });
 
-// app.get('/appenda', (req, res) => {
-//   const {} = req.query;
+app.get('/appenda/:appendTo', (req, res) => {
+  const { appendTo } = req.params;
+  if (appendTo) {
+    res.json({ appended: `${appendTo}a` });
+  } else {
+    res.json({
+      error: '404'
+    });
+  }
+});
 
 app.use('/assets', express.static('assets'));
 
