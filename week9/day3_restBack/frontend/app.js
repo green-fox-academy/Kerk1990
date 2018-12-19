@@ -20,6 +20,18 @@ app.get('/doubling', (req, res) => {
     });
   }
 });
+
+app.get('/greeter', (req, res) => {
+  const { name, title } = req.query;
+  if (name) {
+    res.json({ welcome_message: `Oh, hi there ${name}, my dear student!` });
+  } else if (title) {
+    res.json({ welcome_message: `Oh, hi there ${name}, my dear ${title}!` });
+  } else {
+    res.json({ error: 'Please provide a name!' });
+  }
+});
+
 app.use('/assets', express.static('assets'));
 
 app.listen(PORT, () => {
