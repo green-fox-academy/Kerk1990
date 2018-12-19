@@ -3,8 +3,6 @@ const app = express();
 const PORT = 8080;
 const path = require('path');
 
-// const bodyParser = require('body-parser');
-// const jsonParser = bodyParser.json();
 app.use(express.json());
 
 app.get('/', (req, res) => {
