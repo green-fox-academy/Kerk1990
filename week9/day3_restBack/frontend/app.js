@@ -23,14 +23,17 @@ app.get('/doubling', (req, res) => {
 
 app.get('/greeter', (req, res) => {
   const { name, title } = req.query;
-  if (name) {
-    res.json({ welcome_message: `Oh, hi there ${name}, my dear student!` });
-  } else if (title) {
+  if (name,title) {
     res.json({ welcome_message: `Oh, hi there ${name}, my dear ${title}!` });
-  } else {
+  } else if (title) {
     res.json({ error: 'Please provide a name!' });
+  } else if (name) {
+    res.json({ error: 'Please provide a title!' });
   }
 });
+
+// app.get('/appenda', (req, res) => {
+//   const {} = req.query;
 
 app.use('/assets', express.static('assets'));
 
