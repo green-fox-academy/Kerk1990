@@ -5,7 +5,10 @@
 }
 
 body {
-  margin: 0 auto;
+  margin: 10px 10px 10px 10px;
+  border: 2px black solid;
+  border-radius: 10px;
+  text-align: center;
 }
 
 thead {
