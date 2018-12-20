@@ -22,11 +22,16 @@ conn.connect(err => {
   console.log('Connected to database', '\n');
 });
 
+let baseQuery = `select book_name, aut_name, pub_name, cate_descrip, book_price 
+FROM book_mast, author, publisher, category  
+WHERE book_mast.aut_id = author.aut_id 
+AND book_mast.pub_id = publisher.pub_id 
+AND book_mast.cate_id = category.cate_id`
 app.get('/', (req, res) => {
-  conn.query('SELECT book_name FROM book_mast;', (err, rows) => {
+  conn.query(baseQuery, (err, rows) => {
     if (err) {
       console.log(err.toString());
-      res.satus(500).send('Database error');
+      res.status(500).send('Database error');
       return;
     }
     res.send(rows);
