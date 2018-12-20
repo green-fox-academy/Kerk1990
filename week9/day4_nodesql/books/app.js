@@ -22,6 +22,17 @@ conn.connect(err => {
   console.log('Connected to database', '\n');
 });
 
+app.get('/', (req, res) => {
+  conn.query('SELECT book_name FROM book_mast;', (err, rows) => {
+    if (err) {
+      console.log(err.toString());
+      res.satus(500).send('Database error');
+      return;
+    }
+    res.send(rows);
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`)
 });
