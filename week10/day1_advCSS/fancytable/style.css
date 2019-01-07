@@ -8,7 +8,18 @@ table {
   margin: 20px auto;
   border-collapse: collapse;
   border: 1px solid grey;
-  border-radius: 2px;
+  border-radius: 5px;
+  border-style: hidden;
+  overflow: hidden;
+}
+
+thead{
+  background-color: #1A1E25;
+  color: white;
+  border-bottom: 3px solid #9DA7B0;
+  letter-spacing: 3px;
+  text-align: left;
+  font-size: 25px;
 }
 
 th {
