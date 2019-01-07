@@ -1,0 +1,46 @@
+body {
+  background-color: #3E94EC;
+  font-family: 'Roboto', sans-serif;
+}
+
+table {
+  width: 95%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  border: 1px solid grey;
+  border-radius: 2px;
+}
+
+th {
+  color:white;
+  background: black;
+  width: 60px;
+  height: 40px;
+  border: 1px solid grey;
+  padding: 20px;
+}
+
+td {
+  color: black;
+  width: 60px;
+  height: 40px;
+  border: 1px solid grey;
+  padding: 20px;
+}
+
+td[data-currency]::before {
+content: "\0024"; 
+}
+
+tr {
+  color: #656b84;
+  font-size: 22px;
+}
+
+tr:nth-child(2n) {
+  background-color: #ebebeb;
+}
+
+tr:nth-child(2n+1) {
+  background-color: #ffffff;
+}
