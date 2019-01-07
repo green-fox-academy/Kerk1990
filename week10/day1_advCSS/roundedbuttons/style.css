@@ -32,31 +32,37 @@ button:active {
 
 .blue {
   background-color: #3F5D9C;
-  box-shadow: 0 5px 0 rgba(51, 55, 105, 0.925);
+  box-shadow: 0 5px 0 #26396D,
+              0 -2px 0 #5577BF;
 }
 
 .green {
   background-color: #1AAA57;
-  box-shadow: 0 5px 0 rgba(55, 126, 65, 0.925);
+  box-shadow: 0 5px 0 #166A40,
+              0 -2px 0 #55D28B;
 }
 
 .red {
   background-color: #D13F2F;
-  box-shadow: 0 5px 0 rgba(150, 54, 54, 0.925);
+  box-shadow: 0 5px 0 #862B2F,
+              0 -2px 0 #DC6453;
 }
 
 .light {
   background-color: #01AEED;
-  box-shadow: 0 5px 0 rgba(37, 115, 126, 0.925);
+  box-shadow: 0 5px 0 #0C6AA0,
+              0 -2px 0 #1ABFF5;
 }
 
 .black {
   background-color: #262729;
-  box-shadow: 0 5px 0 rgba(22, 22, 22, 0.925);
+  box-shadow: 0 5px 0 #1E1F2E,
+              0 -2px 0 #333535;
 }
 
 .white {
   background-color: #F6F7FC;
-  box-shadow: 0 5px 0 rgba(192, 192, 192, 0.925);
+  box-shadow: 0 5px 0 #999FB3,
+              0 -2px 0 #FEFDFF;
   color:black;
 }
