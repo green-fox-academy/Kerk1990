@@ -1,0 +1,23 @@
+{
+  "name": "YounduArrow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "routes.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "supertest": "^3.3.0",
+    "tape": "^4.9.2"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
