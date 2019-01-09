@@ -15,3 +15,23 @@ const sendHttpRequest = (method, url, callback) => {
   }
   xmlRequest.send();
 };
+
+const renderQuestion = (data) => {
+  questionsCont.innerHTML = '';
+  const h2 = document.createElement('h2');
+  h2.innerText = data.question;
+
+  const ul = document.createElement('ul');
+  data.answer.forEach(e => {
+    const li = document.createElement('li');
+    li.classList.add('answerButton');
+    li.setAttribute('data-iscorrect', element.is_correct);
+    li.innerText = e.answer;
+    ul.appendChild(li);
+  });
+
+  questionsCont.appendChild(h2);
+  questionsCont.appendChild(ul);
+
+  score.innerText = `Score: ${counter}`
+}
