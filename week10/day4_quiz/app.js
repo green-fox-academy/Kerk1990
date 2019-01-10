@@ -16,88 +16,125 @@ const conn = mysql.createConnection({
   password: 'password'
 });
 
-conn.connect((err) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
-  console.log('connection established');
-});
-
-app.get('/', (req, res) => {
+app.get('/game', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/game', (req, res) => {
-  const sql = 'SELECT id, question from questions';
-  const questionId = [];
-  let randomNumber = 0;
+app.get('/questions', (req, res) => {
+  res.sendFile(path.join(__dirname, 'question.html'));
+});
 
-  conn.query(sql, (err, rows) => {
+const randomQuestSelector = 'SELECT * FROM questions ORDER BY RAND() LIMIT 1;';
+app.get('/api/game', (req, res) => {
+  conn.query(randomQuestSelector, (err, data) => {
     if (err) {
       console.log(err.message);
-      res.status(400).json({
-        error: 'Internal server ERROR'
+      res.status(400).send();
+    } else {
+      const selectAnswerOptions = 'SELECT * FROM answers WHERE question_id=?;';
+      conn.query(selectAnswerOptions, [data[0].id], (err, answersData) => {
+        console.log(answersData)
+        if (err) {
+          console.log(err.message);
+          res.status(400).send();
+        } else {
+          const questionObj = {
+            id: data[0].id,
+            question: data[0].question,
+            answers: answersData
+          }
+          res.json(questionObj)
+        }
       });
-      return;
     }
-    rows.forEach(e => {
-      questionId.push(e.id);
-    });
-    console.log(questionId);
-    randomNumber = Math.floor(Math.random() * questionId.length);
-
-    const sqlRandom = `SELECT questions.id, questions.question, answers.id, answers.question_id, answers.is_correct, answers.answer 
-    FROM questions, answers WHERE questions.id = answers.question_id
-    AND questions.id = ${questionId[randomNumber]};`;
-
-    conn.query(sqlRandom, (err, data) => {
-      if (err) {
-        console.log(err.message);
-        res.status(400).json({
-          error: 'Internal server error'
-        });
-        return;
-      }
-      let tempAnswers = data.map(e => {
-        return {
-          id: e.id,
-          answer: e.answer,
-          is_correct: e.is_correct,
-          question_id: e.question_id
-        };
-      })
-      res.json({
-        id: data[0].id,
-        question: data[0].question,
-        answer: tempAnswers
-      });
-    });
   });
 });
 
+
+
+
+const selectQuestions = 'SELECT * FROM questions;';
 app.get('/api/questions', (req, res) => {
-  const sql = 'SELECT * FROM questions;';
-  conn.query(sql, (err, rows) => {
+  conn.query(selectQuestions, (err, data) => {
     if (err) {
       console.log(err.message);
-      res.status(400).json({
-        error: 'Internal server error'
-      });
-      return;
+      res.status(400).send();
+    } else {
+      res.status(200).json(data);
     }
-    res.json(rows);
   });
 });
 
-app.post('/questions', (req, res) => {
-  const { question, answer1, answer2, answer3, answer4, wichtrue } = req.body;
-  const sql = `INSERT INTO questions (question) VALUES (?);`;
-  conn.query(sql, [question], (err, rows) => {
+const addNewQuestion = 'INSERT INTO questions (question) VALUES (?);';
+app.post('/api/questions', (req, res) => {
+  const { question, answers } = req.body;
+  conn.query(addNewQuestion, question, (err, data) => {
     if (err) {
       console.log(err.message);
-      res.status(500).json({ error: 'Internal server error' });
-      return;
+      res.status(400).send();
+    } else {
+      selectQuestionId(question, answers, res);
     }
+  });
+});
 
-    app.listen(PORT, console.log(`Listening on PORT: ${PORT}`));
+const selectNewQuestionId = 'SELECT id FROM questions WHERE question = ?;';
+const selectQuestionId = (question, answers, res) => {
+  conn.query(selectNewQuestionId, [question], (err, data) => {
+    if (err) {
+      console.log(err.message);
+      res.status(400).send();
+    } else {
+      answers.forEach(answer => {
+        addNewAnswers(data[0].id, answer, res);
+      });
+    }
+  });
+}
+
+const insertNewAnswers = 'INSERT INTO answers (question_id, answer, is_correct) VALUES (?, ?, ?);';
+const addNewAnswers = (questionId, answer, res) => {
+  conn.query(insertNewAnswers, [questionId, answer.answer, answer.is_correct], (err, data) => {
+    if (err) {
+      console.log(err.message);
+      res.status(400).send();
+    } else {
+      res.status(200).send();
+    }
+  });
+}
+
+const deleteByIdFromQuestions = 'DELETE FROM questions WHERE id = ?;';
+app.delete('/api/questions/:id', (req, res) => {
+  const { id } = req.params;
+  conn.query(deleteByIdFromQuestions, [id], (err, data) => {
+    if (err) {
+      console.log(err.message);
+      res.status(400).send();
+    } else {
+      if (data.affectedRows === 0) {
+        res.status(404).json({
+          message: 'Wrong id used!'
+        });
+      } else {
+        deleteAnswers(id, res);
+      }
+    }
+  });
+});
+
+const deleteById = 'DELETE FROM answers WHERE question_id = ?;';
+const deleteAnswers = (id, res) => {
+  conn.query(deleteById, [id], (err, data) => {
+    if (err) {
+      console.log(err.message);
+      res.status(400).send();
+    } else {
+      res.status(200).json({
+        message: 'Delete was successfull!'
+      });
+    }
+  });
+}
+
+app.listen(PORT, console.log(`Listening on PORT: ${PORT}`));
