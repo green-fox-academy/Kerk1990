@@ -1,37 +1,49 @@
 
-const questionsCont = document.querySelector('.questions');
-const score = document.querySelector('.score');
+const questionSpace = document.querySelector('.dataspace');
+let score = document.querySelector('.score');
 let counter = 0;
 
-const baseUrl = 'http://localhost:3000/game';
-
-const sendHttpRequest = (method, url, callback) => {
-  const xmlRequest = new XMLHttpRequest();
-  xmlRequest.open(method, url);
-  xmlRequest.onload = () => {
-    if (xmlRequest.status === 200) {
-      callback(JSON.parse(xmlRequest.responseText));
+const displayRandomQuestion = () => {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', '/api/game');
+  xhr.onload = () => {
+    if (xhr.status === 200) {
+      questionSpace.innerHTML = '';
+      const response = JSON.parse(xhr.responseText);
+      let newQuestion = document.createElement('h2');
+      newQuestion.innerHTML = response.question;
+      questionSpace.appendChild(newQuestion);
+      console.log(response);
+      
+      response.answers.forEach(e => {
+        let newButton = document.createElement('button');
+        console.log(e.answer)
+        newButton.innerText = e.answer;
+        newButton.addEventListener('click', () => {
+          // let allButtons = document.querySelectorAll('button');
+          // allButtons.forEach(button => {
+          //   button.setAttribute('enabled', 'true');
+          // });
+          newButton.setAttribute('style', 'border: 2px inset gray');
+          if (e.is_correct === 1) {
+            setTimeout(() => {
+              newButton.setAttribute('style', 'background-color: #26AE60');
+              let scoreBefore = score.textContent;
+              score.textContent = parseInt(scoreBefore) + 1;
+            }, 1500)
+          } else {
+            setTimeout(() => {
+              newButton.setAttribute('style', 'background-color: #ED8668');
+            }, 1500)
+          }
+          setTimeout(() => {
+            displayRandomQuestion();
+          }, 3000);
+        });
+        questionSpace.appendChild(newButton);
+      });
     }
   }
-  xmlRequest.send();
-};
-
-const renderQuestion = (data) => {
-  questionsCont.innerHTML = '';
-  const h2 = document.createElement('h2');
-  h2.innerText = data.question;
-
-  const ul = document.createElement('ul');
-  data.answer.forEach(e => {
-    const li = document.createElement('li');
-    li.classList.add('answerButton');
-    li.setAttribute('data-iscorrect', element.is_correct);
-    li.innerText = e.answer;
-    ul.appendChild(li);
-  });
-
-  questionsCont.appendChild(h2);
-  questionsCont.appendChild(ul);
-
-  score.innerText = `Score: ${counter}`
+  xhr.send();
 }
+displayRandomQuestion();
