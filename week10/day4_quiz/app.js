@@ -59,12 +59,12 @@ app.get('/game', (req, res) => {
         });
         return;
       }
-      let tempAnswers = data.map(element => {
+      let tempAnswers = data.map(e => {
         return {
-          id: element.id,
-          answer: element.answer,
-          is_correct: element.is_correct,
-          question_id: element.question_id
+          id: e.id,
+          answer: e.answer,
+          is_correct: e.is_correct,
+          question_id: e.question_id
         };
       })
       res.json({
@@ -73,6 +73,20 @@ app.get('/game', (req, res) => {
         answer: tempAnswers
       });
     });
+  });
+});
+
+app.get('/theQuestions', (req, res) => {
+  const sql = 'SELECT * FROM questions;';
+  conn.query(sql, (err, rows) => {
+    if (err) {
+      console.log(err.message);
+      res.status(400).json({
+        error: 'Internal server error'
+      });
+      return;
+    }
+    res.json(rows);
   });
 });
 
