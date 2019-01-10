@@ -76,7 +76,7 @@ app.get('/game', (req, res) => {
   });
 });
 
-app.get('/theQuestions', (req, res) => {
+app.get('/api/questions', (req, res) => {
   const sql = 'SELECT * FROM questions;';
   conn.query(sql, (err, rows) => {
     if (err) {
@@ -90,4 +90,14 @@ app.get('/theQuestions', (req, res) => {
   });
 });
 
-app.listen(PORT, console.log(`Listening on PORT: ${PORT}`));
+app.post('/questions', (req, res) => {
+  const { question, answer1, answer2, answer3, answer4, wichtrue } = req.body;
+  const sql = `INSERT INTO questions (question) VALUES (?);`;
+  conn.query(sql, [question], (err, rows) => {
+    if (err) {
+      console.log(err.message);
+      res.status(500).json({ error: 'Internal server error' });
+      return;
+    }
+
+    app.listen(PORT, console.log(`Listening on PORT: ${PORT}`));
