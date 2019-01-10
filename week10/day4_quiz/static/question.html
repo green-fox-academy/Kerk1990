@@ -10,31 +10,35 @@
 </head>
 
 <body>
-  <div>
-    <h1>Manage questions</h1>
-    <div class="manageQuestions">
-    </div>
-    <div class="AddQuestions">
-    </div>
-    <h1>Add your new question here</h1>
+  <div class="maincontainer">
     <form>
-      <input type="text" id="question" placeholder="Add your question here!" required>
-      <p>Answers</p>
-      <div>
-        <span>A</span><input type="text" id="answerNum1" placeholder="Add your answer here!" required>
-      </div>
-      <div>
-        <span>B</span><input type="text" id="answerNum2" placeholder="Add your answer here!" required>
-      </div>
-      <div>
-        <span>C</span><input type="text" id="answerNum3" placeholder="Add your answer here!" required>
-      </div>
-      <div>
-        <span>D</span><input type="text" id="answerNum4" placeholder="Add your answer here!" required>
-      </div>
+      <h1>Manage question</h1>
+      <div class="manage"></div>
+      <h1>Add a new question</h1>
+      <div class="addnew">
+        <input type="text" id="question" placeholder="Add your question here!" required>
+        <p>Answers</p>
+        <div>
+          <span>#1</span><input type="text" id="answerNum1" placeholder="Add your answer here!" required>
+          <input name="radioanswers" value="1" type="radio">
+        </div>
+        <div>
+          <span>#2</span><input type="text" id="answerNum2" placeholder="Add your answer here!" required>
+          <input name="radioanswers" value="2" type="radio">
+        </div>
+        <div>
+          <span>#3</span><input type="text" id="answerNum3" placeholder="Add your answer here!" required>
+          <input name="radioanswers" value="3" type="radio">
+        </div>
+        <div>
+          <span>#4</span><input type="text" id="answerNum4" placeholder="Add your answer here!" required>
+          <input name="radioanswers" value="4" type="radio">
+        </div>
+        <input type="submit">
     </form>
   </div>
-  <a href="http://localhost:3000/" class="getBack">Get back to Game</a>
+  <a href="http://localhost:3000/game" class="getBack">Get back to Game</a>
+  <script src="questionManager.js"></script>
 </body>
 
 </html>
