@@ -18,7 +18,7 @@ postReq.send(JSON.stringify({
   topping: toppings.value,
 }));
 postReq.onload = () => {
-  cnost response = JSON.parse(postReq.responseText);
+  const response = JSON.parse(postReq.responseText);
   render(response);
   name.value = null;
   address.value = null;
@@ -33,12 +33,12 @@ const render = (data) => {
 
   liID.innerText = `Your order id is: ${data.id}`;
 
-  ul.appendChild(ilID);
+  ul.appendChild(liID);
   display.appendChild(ul);
 };
 
 const radioUncheck = (radios) => {
-  radios.fordEach(e => {
+  radios.forEach(e => {
     if (e.checked) {
       e.checked = false;
     }
