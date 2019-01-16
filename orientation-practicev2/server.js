@@ -11,14 +11,14 @@ app.use(express.json());
 const conn = mysql.createConnection({
   user: 'root',
   password: 'password',
-  database: 'takeout_db',
+  database: 'practice',
   port: 3306
 });
 
 app.use('/static', express.static('static'));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, './static/index.html'));
 });
 
 app.post('/api/orders', (req, res) => {
