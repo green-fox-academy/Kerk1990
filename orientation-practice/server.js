@@ -19,7 +19,7 @@ app.use('/static', express.static('static'));
 
 app.use(express.json());
 
-app.listen(PORT, () => { console.log(`App is listening on Port: ${PORT}`))});
+app.listen(PORT, () => { console.log(`App is listening on Port: ${PORT}`)});
 
 app.get('/', (req, res) => { res.sendFile(path.join(__dirname, './static/index.html')) });
 
@@ -31,11 +31,11 @@ app.post('/api/orders', (req, res) => {
     base === undefined || base === '' ||
     topping === undefined || topping === ''
   ) {
-    res.json({ message: 'all field are required' });
+    res.json({ message: 'all fields are required' });
   } else {
-    const sqlQuery = 'INSERT INTO orders (name, address, base, topping, status) VALUES (?, ?, ?, ?, ?);';
+    const sqlquery = 'INSERT INTO orders (name, address, base, topping, status) VALUES (?, ?, ?, ?, ?);';
     const status = 'ordered';
-    conn.query(sqlQuery, [name, address, base, topping, status], (err, rows) => {
+    conn.query(sqlquery, [name, address, base, topping, status], (err, rows) => {
       if (err) {
         res.status(500).json({ error: 'internal server error' });
         console.log(err);
