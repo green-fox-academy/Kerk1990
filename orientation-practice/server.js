@@ -19,7 +19,7 @@ app.use('/static', express.static('static'));
 
 app.use(express.json());
 
-app.listen(PORT, () => { console.log(`App is listening on Port: ${PORT}`)});
+app.listen(PORT, () => { console.log(`App is listening on Port: ${PORT}`) });
 
 app.get('/', (req, res) => { res.sendFile(path.join(__dirname, './static/index.html')) });
 
@@ -130,4 +130,37 @@ app.patch('/api/orders/:id', (req, res) => {
   } else {
     res.status(400).send('wrong status');
   }
+});
+
+app.delete('/orders', (req, res) => {
+  const { id } = req.body;
+  const sql = 'SELECT * FROM orders;';
+  conn.query(sql, (err, rows) => {
+    if (err) {
+      console.log(err.message);
+      res.status(500).json({
+        error: 'Internal server error'
+      });
+      return;
+    }
+    if (rows.find(data => data.id === id)) {
+      conn.query(`DELETE FROM orders WHERE id = '${id}';`, (err, data) => {
+        if (err) {
+          console.log(err.message);
+          res.status(500).json({
+            error: 'Internal server error'
+          });
+          return;
+        }
+        res.json({
+          message: 'Succesfully deleted'
+        });
+      });
+    } else {
+      res.json({
+        message: 'Wrong ID'
+      });
+    }
+  });
+
 });
