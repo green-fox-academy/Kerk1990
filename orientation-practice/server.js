@@ -132,10 +132,44 @@ app.patch('/api/orders/:id', (req, res) => {
   }
 });
 
-app.delete('/orders', (req, res) => {
-  const { id } = req.body;
-  const sql = 'SELECT * FROM orders;';
-  conn.query(sql, (err, rows) => {
+// app.delete('/orders', (req, res) => {
+//   const { id } = req.body;
+//   const sql = 'SELECT * FROM orders;';
+//   conn.query(sql, (err, rows) => {
+//     if (err) {
+//       console.log(err.message);
+//       res.status(500).json({
+//         error: 'Internal server error'
+//       });
+//       return;
+//     }
+//     if (rows.find(data => data.id === id)) {
+//       conn.query(`DELETE FROM orders WHERE id = '${id}';`, (err, data) => {
+//         if (err) {
+//           console.log(err.message);
+//           res.status(500).json({
+//             error: 'Internal server error'
+//           });
+//           return;
+//         }
+//         res.json({
+//           message: 'Succesfully deleted'
+//         });
+//       });
+//     } else {
+//       res.json({
+//         message: 'Wrong ID'
+//       });
+//     }
+//   });
+
+// });
+
+app.delete('/orders/:id', (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body;
+  const ids = `SELECT * FROM orders`;
+  conn.query(ids, (err, data) => {
     if (err) {
       console.log(err.message);
       res.status(500).json({
@@ -143,8 +177,8 @@ app.delete('/orders', (req, res) => {
       });
       return;
     }
-    if (rows.find(data => data.id === id)) {
-      conn.query(`DELETE FROM orders WHERE id = '${id}';`, (err, data) => {
+    if (data.find(row => row.id == id)) {
+      conn.query(`SELECT * FROM orders WHERE id = '${id}';`, (err, row) => {
         if (err) {
           console.log(err.message);
           res.status(500).json({
@@ -152,15 +186,29 @@ app.delete('/orders', (req, res) => {
           });
           return;
         }
-        res.json({
-          message: 'Succesfully deleted'
-        });
-      });
+        if (row[0].status == status) {
+          conn.query(`DELETE FROM orders WHERE id = '${id}';`, (err, deleted) => {
+            if (err) {
+              console.log(err.message);
+              res.status(500).json({
+                error: 'Internal server error'
+              });
+              return;
+            }
+            res.status(204).json({
+              message: 'Successfully deleted'
+            });
+          });
+        } else {
+          res.status(403).json({
+            error: 'Wrong status'
+          });
+        }
+      })
     } else {
-      res.json({
-        message: 'Wrong ID'
+      res.status(404).json({
+        error: 'not existing ID'
       });
     }
   });
-
 });
